@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all packages
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new package
+    </h2>
+
+    <form action="/insert_package" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="arrival_date_box">
+          Arrival date
+        </label>
+
+        <input type="date" id="arrival_date_box" name="query_arrival_date">
+      </div>
+
+      <div>
+        <label for="details_box">
+          Details
+        </label>
+
+        <input type="text" id="details_box" name="query_details">
+      </div>
+
+      <div>
+        <label for="item_box">
+          Item
+        </label>
+
+        <input type="text" id="item_box" name="query_item">
+      </div>
+
+      <button>
+        Create package
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Arrival date
+        </th>
+
+        <th>
+          Details
+        </th>
+
+        <th>
+          Item
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_packages.each do |a_package| %>
+      <tr>
+        <td>
+          <%= a_package.id %>
+        </td>
+
+        <td>
+          <%= a_package.user_id %>
+        </td>
+
+        <td>
+          <%= a_package.status %>
+        </td>
+
+        <td>
+          <%= a_package.arrival_date %>
+        </td>
+
+        <td>
+          <%= a_package.details %>
+        </td>
+
+        <td>
+          <%= a_package.item %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_package.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_package.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/packages/<%= a_package.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
