@@ -20,17 +20,10 @@
 
     <dl>
       <dt>
-        User
+        Item
       </dt>
       <dd>
-        <%= @the_package.user_id %>
-      </dd>
-
-      <dt>
-        Status
-      </dt>
-      <dd>
-        <%= @the_package.status %>
+        <%= @the_package.item %>
       </dd>
 
       <dt>
@@ -48,10 +41,17 @@
       </dd>
 
       <dt>
-        Item
+        Status
       </dt>
       <dd>
-        <%= @the_package.item %>
+        <%= @the_package.status %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_package.user_id %>
       </dd>
 
       <dt>
@@ -82,19 +82,11 @@
 
     <form action="/modify_package/<%= @the_package.id %>"  method="post" >
       <div>
-        <label for="user_id_box">
-          User
+        <label for="item_box">
+          Item
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_package.user_id %>">
-      </div>
-
-      <div>
-        <label for="status_box">
-          Status
-        </label>
-
-        <input type="text" id="status_box" name="query_status" value="<%= @the_package.status %>">
+        <input type="text" id="item_box" name="query_item" value="<%= @the_package.item %>">
       </div>
 
       <div>
@@ -114,11 +106,19 @@
       </div>
 
       <div>
-        <label for="item_box">
-          Item
+        <label for="status_box">
+          Status
         </label>
 
-        <input type="text" id="item_box" name="query_item" value="<%= @the_package.item %>">
+        <input type="text" id="status_box" name="query_status" value="<%= @the_package.status %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_package.user_id %>">
       </div>
 
       <button>

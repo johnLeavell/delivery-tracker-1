@@ -11,11 +11,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
 
   </head>
+ <body>
+    <% if @current_user == nil %>
+      <nav>
+        <a href="/user_sign_in">Sign in</a> | <a href="/user_sign_up">Sign up</a>
+      </nav>
+    <% end %>
 
-  <body>
+    <% if @current_user != nil %>
+      <nav>
+        <a href="/">Your todo list</a> | 
+        <a href="/edit_user_profile">Edit profile</a> | 
+        <a href="/user_sign_out">Sign out</a>
+      </nav>
+    <% end %>
+    
+    <div class="notice">
+      <%= notice %>
+    </div>
+
+    <div class="alert">
+      <%= alert %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post("/insert_package", { :controller => "packages", :action => "create" })
           
   # READ
-  get("/packages", { :controller => "packages", :action => "index" })
+  get("/", { :controller => "packages", :action => "index" })
   
   get("/packages/:path_id", { :controller => "packages", :action => "show" })
   
